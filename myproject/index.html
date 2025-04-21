@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tâm Linh Việt - Mâm Cúng Truyền Thống</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Thêm EmailJS -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function() {
+            // Sẽ được cấu hình trong script.js
+            emailjs.init("YOUR_PUBLIC_KEY");
+        })();
+    </script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1>Chị <span>Nồi</span></h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#home">Trang Chủ</a></li>
+                    <li><a href="#products">Sản Phẩm</a></li>
+                    <li><a href="#about">Về Chúng Tôi</a></li>
+                    <li><a href="#testimonials">Đánh Giá</a></li>
+                    <li><a href="#contact">Liên Hệ</a></li>
+                </ul>
+            </nav>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Mâm Cúng Truyền Thống Việt Nam</h1>
+                <p>Mang đến cho bạn những mâm cúng chuẩn mực theo phong tục truyền thống</p>
+                <a href="#products" class="btn">Khám Phá Ngay</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="featured" class="featured">
+        <div class="container">
+            <div class="section-header">
+                <h2>Mâm Cúng Nổi Bật</h2>
+                <p>Những mâm cúng được yêu thích nhất của chúng tôi</p>
+            </div>
+            <!-- Container trống để JavaScript điền dữ liệu sản phẩm nổi bật vào -->
+            <div class="featured-grid">
+                <!-- Dữ liệu sẽ được tải từ API -->
+                <div id="featured-loading" class="loading-message">
+                    <div class="spinner-small"></div>
+                    <p>Đang tải mâm cúng nổi bật...</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="products" class="products">
+        <div class="container">
+            <div class="section-header">
+                <h2>Danh Mục Mâm Cúng</h2>
+                <p>Khám phá đa dạng các loại mâm cúng cho mọi nghi lễ tâm linh</p>
+            </div>
+            <!-- Container trống để JavaScript điền danh mục vào -->
+            <div class="category-nav">
+                <!-- Danh mục sẽ được tải từ API -->
+                <div id="category-loading" class="loading-message">
+                    <div class="spinner-small"></div>
+                    <p>Đang tải danh mục...</p>
+                </div>
+            </div>
+            <!-- Container trống để JavaScript điền sản phẩm vào -->
+            <div class="products-grid">
+                <!-- Dữ liệu sẽ được tải từ API -->
+                <div id="products-loading" class="loading-message">
+                    <div class="spinner-small"></div>
+                    <p>Đang tải sản phẩm...</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-image">
+                    <img src="images/trasua.jpg" alt="Về Chúng Tôi">
+                    <div class="about-image-overlay">
+                        <div class="symbol-container">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                    </div>
+                    <div class="about-image-decor">
+                        <div class="decor-circle"></div>
+                        <div class="decor-line"></div>
+                    </div>
+                </div>
+                <div class="about-text">
+                    <div class="section-header">
+                        <h2>Về Chúng Tôi</h2>
+                    </div>
+                    <p><i class="fas fa-quote-left" style="color: var(--primary-color); margin-right: 10px; opacity: 0.7;"></i> Chị Nồi là nơi gìn giữ và phát triển các giá trị ẩm thực Việt Nam truyền thống. Chúng tôi tự hào mang đến cho khách hàng những món ăn ngon, mang đậm hương vị quê hương.</p>
+                    <p>Với hơn 15 năm kinh nghiệm, chúng tôi luôn đặt chất lượng và sự hài lòng của khách hàng lên hàng đầu. Mỗi món ăn đều được chế biến tỉ mỉ, chu đáo với nguyên liệu tươi ngon theo đúng công thức truyền thống.<i class="fas fa-quote-right" style="color: var(--primary-color); margin-left: 10px; opacity: 0.7;"></i></p>
+                    <div class="stats">
+                        <div class="stat-item">
+                            <h3>50+</h3>
+                            <p>Món ăn đặc sắc</p>
+                        </div>
+                        <div class="stat-item">
+                            <h3>15+</h3>
+                            <p>Năm kinh nghiệm</p>
+                        </div>
+                        <div class="stat-item">
+                            <h3>5k+</h3>
+                            <p>Khách hàng</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="testimonials" class="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <h2>Khách Hàng Nói Gì Về Chúng Tôi</h2>
+                <p>Những đánh giá từ khách hàng thân thiết</p>
+            </div>
+            <div class="testimonial-slider">
+                <div class="testimonial">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p>"Mâm cúng chuẩn mực, đầy đủ lễ vật theo phong tục truyền thống. Rất hài lòng với dịch vụ tận tâm của Tâm Linh Việt!"</p>
+                    <div class="client">
+                        <!-- <img src="images/client1.jpg" alt="Nguyễn Văn Ánh"> -->
+                        <div>
+                            <h4>Nguyễn Văn Ánh</h4>
+                            <p>Khách hàng thường xuyên</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p>"Dịch vụ tuyệt vời, mâm cúng đầy đủ và trang trọng. Đặc biệt là đội ngũ nhân viên rất nhiệt tình hướng dẫn các nghi lễ."</p>
+                    <div class="client">
+                        <!-- <img src="images/client2.jpg" alt="Trần Thị Bình"> -->
+                        <div>
+                            <h4>Trần Thị Bình</h4>
+                            <p>Khách hàng mới</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <p>"Tôi rất an tâm khi chọn Tâm Linh Việt cho các dịp lễ quan trọng trong gia đình. Mâm cúng luôn đúng phong tục và rất trang nghiêm."</p>
+                    <div class="client">
+                        <!-- <img src="images/client3.jpg" alt="Lê Văn Chương"> -->
+                        <div>
+                            <h4>Lê Văn Chương</h4>
+                            <p>Khách hàng thân thiết</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2>Liên Hệ Với Chúng Tôi</h2>
+                <p>Gửi thông tin để đặt mâm cúng hoặc tư vấn về nghi lễ</p>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="info-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h3>Địa Chỉ</h3>
+                            <p>Kiệt 183 /65 Tô Hiệu - Liên Chiểu - Đà Nẵng</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h3>Điện Thoại</h3>
+                            <p>0905368727</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h3>Email</h3>
+                            <p>info@tamlinhviet.com</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <h3>Giờ Mở Cửa</h3>
+                            <p>Thứ 2 - Chủ Nhật: 6:00 - 20:00</p>
+                        </div>
+                    </div>
+                    <div class="social-media">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <input type="text" id="name" name="name" placeholder="Họ và tên" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="email" name="email" placeholder="Email" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" id="phone" name="phone" placeholder="Số điện thoại">
+                        </div>
+                        <div class="form-group">
+                            <select id="serviceType" name="serviceType">
+                                <option value="" disabled selected>Chọn loại mâm cúng</option>
+                                <option value="khai-truong">Mâm cúng khai trương</option>
+                                <option value="than-tai">Mâm cúng thần tài</option>
+                                <option value="day-thang">Mâm cúng đầy tháng</option>
+                                <option value="nhap-trach">Mâm cúng nhập trạch</option>
+                                <option value="other">Khác</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="message" name="message" placeholder="Lời nhắn" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn">Gửi Tin Nhắn</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h2>Chị <span>Nồi</span></h2>
+                    <p>Tự hào mang giá trị tâm linh đến mọi nhà</p>
+                </div>
+                <div class="footer-links">
+                    <h3>Liên Kết Nhanh</h3>
+                    <ul>
+                        <li><a href="#home">Trang Chủ</a></li>
+                        <li><a href="#products">Sản Phẩm</a></li>
+                        <li><a href="#about">Về Chúng Tôi</a></li>
+                        <li><a href="#testimonials">Đánh Giá</a></li>
+                        <li><a href="#contact">Liên Hệ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-newsletter">
+                    <h3>Đăng Ký Nhận Tin</h3>
+                    <p>Nhận thông tin về nghi lễ và mâm cúng theo phong tục</p>
+                    <form>
+                        <input type="email" placeholder="Email của bạn">
+                        <button type="submit">Đăng Ký</button>
+                    </form>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Tâm Linh Việt. Tất cả các quyền được bảo lưu.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal container cho chi tiết sản phẩm -->
+    <div id="modal-container" class="modal-container" style="display: none;"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
