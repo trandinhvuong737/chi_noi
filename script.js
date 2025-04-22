@@ -166,114 +166,198 @@ productImages.forEach(img => {
 
 // Danh mục mâm cúng
 const categoryMappings = {
-    'thanthaitaithang': 'Thần Tài - Thổ Địa',
-    'giodang': 'Giỗ - Đám',
-    'tanggia': 'Tang Gia',
-    'lehoi': 'Lễ Hội'
+    'daythangthoinoi': 'MÂM CÚNG ĐẦY THÁNG - THÔI NÔI CHO BÉ',
+    'khaitruongnhaptrach': 'MÂM CÚNG KHAI TRƯƠNG - NHẬP TRẠCH-THẦN TÀI',
+    'tatniendatdai': 'MÂM CÚNG TẤT NIÊN- CÚNG ĐẤT',
+    'vankhan': 'VĂN KHẤN'
 };
 
 // Fake Data - mâm cúng
 function getFakeProducts() {
     // Tạo danh sách sản phẩm cố định
+    var packages = [
+        {
+            id: 'basic',
+            name: 'Cơ bản',
+            price: '1.380,000đ - 1.750.000đ',
+            description: `
+                1- Trái Cây<br>
+                2- Hoa Tươi<br>
+                3- Trầu câu<br>
+                4- Trà, nhang cúng<br>
+                5- Rượu<br>
+                6- Nước (theo tông màu và theo yêu cầu)<br>
+                7- Bánh tráng<br>
+                8- Xôi lớn, Chè lớn<br>
+                9- Xôi nhỏ, chè nhỏ (12 cái)<br>
+                10- Bánh Đông sương lớn 4D<br>
+                11- Gà trống tréo cánh<br>
+                12- Bộ giấy cúng đầy tháng- thôi nôi<br>
+                13- Văn khấn<br>
+                14- Hashtag Cầm tay thôi nôi- đầy tháng<br>
+            `
+        },
+        {
+            id: 'premium',
+            name: 'Cao cấp',
+            price: '1.850.000đ - 2.150.000đ',
+            description: `
+                1- Trái Cây<br>
+                2- Hoa Tươi<br>
+                3- Trầu câu<br>
+                4- Trà, nhang cúng<br>
+                5- Rượu<br>
+                6- Nước (theo tông màu và theo yêu cầu)<br>
+                7- Bánh tráng<br>
+                8- Xôi lớn, Chè lớn<br>
+                9- Xôi nhỏ, chè nhỏ (12 cái)<br>
+                10- Bánh Đông sương lớn 4D<br>
+                11- Bánh đông sương nhỏ 2D<br>
+                12- Gà trống tréo cánh<br>
+                13- Bộ giấy cúng đầy tháng- thôi nôi<br>
+                14- Văn khấn<br>
+                15- Hashtag Cầm tay thôi nôi- đầy tháng<br>
+            `
+        },
+        {
+            id: 'vip',
+            name: 'VIP',
+            price: '2.250.000đ - 2.257.000đ',
+            description: `
+                1- Trái Cây<br>
+                2- Hoa Tươi<br>
+                3- Trầu câu<br>
+                4- Trà, nhang cúng<br>
+                5- Rượu<br>
+                6- Nước (theo tông màu và theo yêu cầu)<br>
+                7- Bánh tráng<br>
+                8- Xôi lớn, Chè lớn<br>
+                9- Xôi nhỏ, chè nhỏ (12 cái)<br>
+                10- Bánh Đông sương 4D lớn<br>
+                11- Bánh đông sương nhỏ 4D/2D (12 cái)<br>
+                12- Bánh bao tạo hình lớn<br>
+                13- Bánh bao tạo hình nhỏ (12 cái)<br>
+                14- Gà trống tréo cánh<br>
+                16- Bộ giấy cúng đầy tháng- thôi nôi<br>
+                17- Văn khấn<br>
+                18- Bảng Tên<br>
+                19- Hashtag Cầm tay thôi nôi- đầy tháng<br>
+            `
+        },
+        {
+            id: 'vip-pro',
+            name: 'VIP Pro',
+            price: '2.750.000đ - 3.570.000đ',
+            description: `
+                1- Trái Cây LÃNG<br>
+                2- Hoa Tươi LÃNG<br>
+                3- Trầu câu<br>
+                4- Trà, nhang cúng<br>
+                5- Rượu<br>
+                6- Nước (theo tông màu và theo yêu cầu)<br>
+                7- Bánh tráng<br>
+                8- Xôi lớn, Chè lớn<br>
+                9- Xôi nhỏ, chè nhỏ (12 cái)<br>
+                10- Bánh Đông sương 4D lớn<br>
+                11- Bánh đông sương nhỏ 4D (12 cái)<br>
+                12- Bánh bao tạo hình lớn<br>
+                13- Bánh bao tạo hình nhỏ (12 cái)<br>
+                14- Gà trống tréo cánh<br>
+                16- Bộ giấy cúng đầy tháng- thôi nôi<br>
+                17- Văn khấn<br>
+                18- Bảng Tên<br>
+                19- Hashtag Cầm tay thôi nôi- đầy tháng<br>
+            `
+        }
+    ];
     const products = [
         {
             id: 1,
-            name: 'Mâm cúng Thần Tài',
-            description: 'Mâm cúng Thần Tài đầy đủ, trang trọng với hoa quả, trầu cau, bánh kẹo, rượu và thịt.',
+            name: 'MÂM CÚNG ĐẦY THÁNG - THÔI NÔI CHO BÉ',
+            description: 'Mâm cúng đầy tháng - thôi nôi cho bé đầy đủ, trang trọng với đồ cúng theo phong tục truyền thống Việt Nam.',
             price: '650.000đ',
-            category: 'thanthaitaithang',
-            categoryName: 'Thần Tài - Thổ Địa',
-            image: 'images/chego.jpg',
+            category: 'daythangthoinoi',
+            categoryName: 'MÂM CÚNG ĐẦY THÁNG - THÔI NÔI CHO BÉ',
+            image: 'images/daythangthoinoi/0b125d86c9207a7e23316.jpg',
+            images: [
+                'images/daythangthoinoi/0b125d86c9207a7e23316.jpg',
+                'images/daythangthoinoi/1fd1c8625ec4ed9ab4d51.jpg',
+                'images/daythangthoinoi/02eb3b15aeb31ded44a211.jpg',
+                'images/daythangthoinoi/5f2c438ad72c64723d3d7.jpg',
+                'images/daythangthoinoi/06df6dfdff5b4c05154a12.jpg',
+                'images/daythangthoinoi/29d6acf138578b09d2464.jpg',
+                'images/daythangthoinoi/060be3af7409c7579e182.jpg',
+                'images/daythangthoinoi/76de2b45bee30dbd54f210.jpg',
+                'images/daythangthoinoi/392a12ed814b32156b5a17.jpg',
+                'images/daythangthoinoi/516a429cd03a63643a2b14.jpg',
+                'images/daythangthoinoi/5004ce6f5ac9e997b0d85.jpg',
+                'images/daythangthoinoi/29708d6f18c9ab97f2d89.jpg',
+                'images/daythangthoinoi/853411e38645351b6c543.jpg',
+                'images/daythangthoinoi/b87f2e19bdbf0ee157ae16.jpg',
+                'images/daythangthoinoi/c4bd4693d535666b3f2415.jpg',
+                'images/daythangthoinoi/c14a775ae7fc54a20ded18.jpg',
+                'images/daythangthoinoi/dac1aac33f658c3bd5748.jpg',
+                'images/daythangthoinoi/fec6c54057e6e4b8bdf713.jpg',
+            ],
             featured: true,
-            badge: 'Phổ biến'
+            badge: 'Phổ biến',
+            packages: packages,
         },
         {
             id: 2,
-            name: 'Mâm cúng Thổ Địa',
-            description: 'Mâm cúng Thổ Địa chuẩn mực với đầy đủ lễ vật theo phong tục truyền thống.',
-            price: '550.000đ',
-            category: 'thanthaitaithang',
-            categoryName: 'Thần Tài - Thổ Địa',
-            image: 'images/chagio.jpg',
+            name: 'MÂM CÚNG KHAI TRƯƠNG - NHẬP TRẠCH-THẦN TÀI',
+            description: 'Mâm cúng Khai Trương - Nhập Trạch - Thần Tài đầy đủ, trang trọng với đồ cúng theo phong tục truyền thống Việt Nam.',
+            price: '850.000đ',
+            category: 'khaitruongnhaptrach',
+            categoryName: 'MÂM CÚNG KHAI TRƯƠNG - NHẬP TRẠCH-THẦN TÀI',
+            image: 'images/daythangthoinoi/c14a775ae7fc54a20ded18.jpg',
+            images: [
+                'images/khaitruongnhaptrach/2c409756f2f741a918e624.jpg',
+                'images/khaitruongnhaptrach/48290f7c68dddb8382cc20.jpg',
+                'images/khaitruongnhaptrach/a3c369870b26b878e13727.jpg',
+                'images/khaitruongnhaptrach/b6e9525135f086aedfe121.jpg',
+                'images/khaitruongnhaptrach/ca259500f2a141ff18b019.jpg',
+                'images/khaitruongnhaptrach/ceb7ed828f233c7d653226.jpg',
+                'images/khaitruongnhaptrach/d55849572df69ea8c7e722.jpg',
+                'images/khaitruongnhaptrach/eb6ed6d7b3760028596725.jpg',
+                'images/khaitruongnhaptrach/f7b9c416a0b713e94aa623.jpg',
+            ],
             featured: true,
-            badge: null
+            badge: null,
+            packages: packages,
         },
         {
             id: 3,
-            name: 'Mâm cúng Khai Trương',
-            description: 'Mâm cúng Khai Trương trang trọng với đầy đủ lễ vật cần thiết theo phong tục.',
-            price: '850.000đ',
-            category: 'thanthaitaithang',
-            categoryName: 'Thần Tài - Thổ Địa',
-            image: 'images/buncha.jpg',
+            name: 'MÂM CÚNG TẤT NIÊN- CÚNG ĐẤT',
+            description: 'Mâm cúng Tất Niên đầy đủ, trang trọng với đồ cúng theo phong tục truyền thống Việt Nam.',
+            price: '950.000đ',
+            category: 'tatniendatdai',
+            categoryName: 'MÂM CÚNG TẤT NIÊN- CÚNG ĐẤT',
+            image: 'images/khaitruongnhaptrach/2c409756f2f741a918e624.jpg',
+            images: [
+                'images/tatnien/9ed312c77f66cc38957729.jpg',
+                'images/tatnien/53fdc1c1ac601f3e467130.jpg',
+                'images/tatnien/97c941852c249f7ac63531.jpg',
+                'images/tatnien/8338384257e3e4bdbdf228.jpg',
+            ],
             featured: true,
-            badge: 'Đặc biệt'
+            badge: 'Đặc biệt',
+            packages: packages,
         },
         {
             id: 4,
-            name: 'Mâm cúng Nhập Trạch',
-            description: 'Mâm cúng Nhập Trạch đầy đủ với các lễ vật truyền thống đón nhà mới.',
-            price: '950.000đ',
-            category: 'thanthaitaithang',
-            categoryName: 'Thần Tài - Thổ Địa',
-            image: 'images/comtam.jpg',
+            name: 'VĂN KHẤN',
+            description: 'Văn khấn đầy đủ cho các nghi thức cúng lễ, giúp bạn thực hiện nghi lễ một cách trang trọng và đúng cách.',
+            price: '0đ',
+            category: 'vankhan',
+            categoryName: 'VĂN KHẤN',
+            image: 'images/khaitruongnhaptrach/ca259500f2a141ff18b019.jpg',
+            images: [
+                'images/daythangthoinoi/0b125d86c9207a7e23316.jpg',
+            ],
             featured: false,
-            badge: null
-        },
-        {
-            id: 5,
-            name: 'Mâm cúng Giỗ',
-            description: 'Mâm cúng Giỗ trang nghiêm, đầy đủ với các món ăn truyền thống, hoa quả, trầu cau.',
-            price: '750.000đ',
-            category: 'giodang',
-            categoryName: 'Giỗ - Đám',
-            image: 'images/goi.jpg',
-            featured: true,
-            badge: 'Mới'
-        },
-        {
-            id: 6,
-            name: 'Mâm cúng Đầy Tháng',
-            description: 'Mâm cúng Đầy Tháng cho bé với đầy đủ lễ vật theo phong tục Việt Nam.',
-            price: '550.000đ',
-            category: 'giodang',
-            categoryName: 'Giỗ - Đám',
-            image: 'images/chexoi.jpg',
-            featured: true,
-            badge: null
-        },
-        {
-            id: 7,
-            name: 'Mâm cúng 100 Ngày',
-            description: 'Mâm cúng 100 ngày trang trọng với đầy đủ lễ vật theo phong tục tang lễ.',
-            price: '850.000đ',
-            category: 'tanggia',
-            categoryName: 'Tang Gia',
-            image: 'images/banhflan.jpg',
-            featured: true,
-            badge: null
-        },
-        {
-            id: 8,
-            name: 'Mâm cúng Rằm Tháng Giêng',
-            description: 'Mâm cúng Rằm Tháng Giêng đầy đủ với hoa quả, bánh trái, xôi chè theo phong tục.',
-            price: '680.000đ',
-            category: 'lehoi',
-            categoryName: 'Lễ Hội',
-            image: 'images/cafesua.jpg',
-            featured: false,
-            badge: 'Theo mùa'
-        },
-        {
-            id: 9,
-            name: 'Mâm cúng Tết Nguyên Đán',
-            description: 'Mâm cúng Tết đầy đủ, trang trọng với bánh chưng, giò chả, mứt và hoa quả.',
-            price: '1.500.000đ',
-            category: 'lehoi',
-            categoryName: 'Lễ Hội',
-            image: 'images/trasua.jpg',
-            featured: false,
-            badge: 'Theo mùa'
+            badge: null,
+            packages: '',
         }
     ];
     
@@ -416,17 +500,28 @@ function renderAllProducts(products) {
     // Xóa nội dung hiện tại
     productsContainer.innerHTML = '';
     
-    // Thêm sản phẩm vào container
+    // Thêm class mới để chuyển sang dạng danh sách
+    productsContainer.classList.remove('products-grid');
+    productsContainer.classList.add('products-list');
+    
+    // Thêm sản phẩm vào container dưới dạng danh sách
     products.forEach(product => {
         // Đảm bảo thêm đúng class category để bộ lọc hoạt động
         const productHTML = `
             <div class="product-item ${product.category}" data-id="${product.id}" data-category="${product.category}">
-                ${product.badge ? `<div class="badge">${product.badge}</div>` : ''}
-                <img src="${product.image}" alt="${product.name}">
-                <h3>${product.name}</h3>
-                <p>${product.description}</p>
-                <div class="product-actions">
-                    <a href="#" class="btn-small view-detail btn-full-width" data-id="${product.id}">Chi tiết</a>
+                <div class="product-list-item">
+                    <div class="product-list-image">
+                        ${product.badge ? `<div class="badge">${product.badge}</div>` : ''}
+                        <img src="${product.image}" alt="${product.name}">
+                    </div>
+                    <div class="product-list-content">
+                        <h3>${product.name}</h3>
+                        <div class="product-category">${product.categoryName}</div>
+                        <p>${product.description}</p>
+                        <div class="product-actions">
+                            <a href="#" class="btn-small view-detail" data-id="${product.id}">Chi tiết</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         `;
@@ -475,6 +570,85 @@ async function showProductDetail(productId) {
         
         hideLoading();
         
+        // Chuẩn bị HTML cho slideshow ảnh
+        let imagesGalleryHTML = '';
+        if (product.images && product.images.length > 0) {
+            // Tạo HTML cho slideshow
+            imagesGalleryHTML = `
+                <div class="product-slideshow">
+                    <div class="slideshow-container">
+                        ${product.images.map((img, index) => `
+                            <div class="slide fade${index === 0 ? ' active' : ''}">
+                                <div class="slide-number">${index + 1} / ${product.images.length}</div>
+                                <img src="${img}" alt="${product.name} - Ảnh ${index + 1}">
+                                ${product.badge && index === 0 ? `<div class="badge">${product.badge}</div>` : ''}
+                            </div>
+                        `).join('')}
+                        
+                        <a class="prev">&#10094;</a>
+                        <a class="next">&#10095;</a>
+                    </div>
+                    
+                    <div class="dots-container">
+                        ${product.images.map((_, index) => `
+                            <span class="dot${index === 0 ? ' active' : ''}" data-index="${index}"></span>
+                        `).join('')}
+                    </div>
+                </div>
+            `;
+        } else {
+            // Nếu không có nhiều ảnh, chỉ hiển thị ảnh chính
+            imagesGalleryHTML = `
+                <div class="product-detail-image">
+                    <img src="${product.image}" alt="${product.name}">
+                    ${product.badge ? `<div class="badge">${product.badge}</div>` : ''}
+                </div>
+            `;
+        }
+        
+        // Tạo HTML cho phần gói dịch vụ nếu có
+        let packageOptionsHTML = '';
+        if (product.packages && product.packages.length > 0) {
+            // Mặc định hiển thị thông tin của gói cơ bản trước
+            const defaultPackage = product.packages[0];
+            
+            packageOptionsHTML = `
+                <div class="package-options">
+                    <h3>Lựa chọn gói dịch vụ:</h3>
+                    <div class="package-buttons">
+                        ${product.packages.map(pkg => `
+                            <button class="package-btn ${pkg.id === 'basic' ? 'active' : ''}" 
+                                    data-package-id="${pkg.id}"
+                                    data-price="${pkg.price}"
+                                    data-description="${pkg.description}">
+                                ${pkg.name}
+                            </button>
+                        `).join('')}
+                    </div>
+                </div>
+                <div class="price-container">
+                    <span class="price" id="package-price">${defaultPackage.price}</span>
+                </div>
+                <div class="description">
+                    <h3>Mô tả:</h3>
+                    <p id="package-description">${defaultPackage.description}</p>
+                    ${apiProductDetail && apiProductDetail.body ? `<p>${apiProductDetail.body}</p>` : ''}
+                </div>
+            `;
+        } else {
+            // Nếu không có packages, hiển thị mô tả và giá thông thường
+            packageOptionsHTML = `
+                <div class="price-container">
+                    <span class="price">${product.price}</span>
+                </div>
+                <div class="description">
+                    <h3>Mô tả:</h3>
+                    <p>${product.description || ''}</p>
+                    ${apiProductDetail && apiProductDetail.body ? `<p>${apiProductDetail.body}</p>` : ''}
+                </div>
+            `;
+        }
+        
         // Thêm modal vào body
         const modalElement = document.createElement('div');
         modalElement.classList.add('modal-container');
@@ -487,18 +661,14 @@ async function showProductDetail(productId) {
                         <button class="close-modal" id="closeModalBtn">&times;</button>
                     </div>
                     <div class="product-detail-content">
-                        <div class="product-detail-image">
-                            <img src="${product.image}" alt="${product.name}">
-                            ${product.badge ? `<div class="badge">${product.badge}</div>` : ''}
-                        </div>
+                        ${imagesGalleryHTML}
                         <div class="product-detail-info">
                             <div class="category-tag-container">
                                 <span class="category-tag">${product.categoryName || product.category}</span>
                             </div>
-                            <div class="description">
-                                <h3>Mô tả:</h3>
-                                <p>${product.description || ''}</p>
-                                ${apiProductDetail && apiProductDetail.body ? `<p>${apiProductDetail.body}</p>` : ''}
+                            ${packageOptionsHTML}
+                            <div class="detail-actions">
+                                <button class="btn add-to-cart-detail">Đặt mâm cúng ngay</button>
                             </div>
                         </div>
                     </div>
@@ -530,6 +700,140 @@ async function showProductDetail(productId) {
                     }
                 }
             });
+            
+            // Xử lý sự kiện đặt mâm cúng
+            const addToCartBtn = modalElement.querySelector('.add-to-cart-detail');
+            if (addToCartBtn) {
+                addToCartBtn.addEventListener('click', function() {
+                    // Tìm gói đang được chọn
+                    const selectedPackageBtn = modalElement.querySelector('.package-btn.active');
+                    let selectedPackage = null;
+                    
+                    if (selectedPackageBtn) {
+                        const packageId = selectedPackageBtn.getAttribute('data-package-id');
+                        selectedPackage = product.packages.find(pkg => pkg.id === packageId);
+                    }
+                    
+                    // Nếu có gói được chọn, truyền thông tin gói đã chọn
+                    if (selectedPackage) {
+                        const customProduct = {
+                            ...product,
+                            price: selectedPackage.price,
+                            description: selectedPackage.description,
+                            selectedPackage: selectedPackage
+                        };
+                        showBookingForm(customProduct);
+                    } else {
+                        showBookingForm(product);
+                    }
+                });
+            }
+            
+            // Sự kiện chọn gói dịch vụ
+            const packageBtns = modalElement.querySelectorAll('.package-btn');
+            const priceElement = document.getElementById('package-price');
+            const descriptionElement = document.getElementById('package-description');
+            
+            if (packageBtns.length > 0) {
+                packageBtns.forEach(btn => {
+                    btn.addEventListener('click', function() {
+                        // Xóa active khỏi tất cả nút
+                        packageBtns.forEach(b => b.classList.remove('active'));
+                        // Thêm active vào nút được chọn
+                        this.classList.add('active');
+                        
+                        // Cập nhật giá và mô tả
+                        if (priceElement) {
+                            priceElement.textContent = this.getAttribute('data-price');
+                        }
+                        
+                        if (descriptionElement) {
+                            // Sử dụng innerHTML thay vì textContent để hỗ trợ các thẻ HTML
+                            descriptionElement.innerHTML = this.getAttribute('data-description');
+                        }
+                    });
+                });
+            }
+            
+            // Khởi tạo slideshow nếu có nhiều ảnh
+            if (product.images && product.images.length > 0) {
+                // Lấy các phần tử điều khiển slideshow
+                const slides = document.querySelectorAll('.slide');
+                const dots = document.querySelectorAll('.dot');
+                const prevBtn = document.querySelector('.prev');
+                const nextBtn = document.querySelector('.next');
+                let currentSlideIndex = 0;
+                
+                // Hàm để thay đổi slide
+                function showSlide(n) {
+                    // Reset index nếu vượt quá giới hạn
+                    if (n >= slides.length) currentSlideIndex = 0;
+                    if (n < 0) currentSlideIndex = slides.length - 1;
+                    
+                    // Ẩn tất cả slides
+                    slides.forEach(slide => {
+                        slide.classList.remove('active');
+                    });
+                    
+                    // Bỏ active tất cả dots
+                    dots.forEach(dot => {
+                        dot.classList.remove('active');
+                    });
+                    
+                    // Hiển thị slide hiện tại
+                    slides[currentSlideIndex].classList.add('active');
+                    dots[currentSlideIndex].classList.add('active');
+                }
+                
+                // Chuyển đến slide tiếp theo
+                function nextSlide() {
+                    currentSlideIndex++;
+                    showSlide(currentSlideIndex);
+                }
+                
+                // Chuyển đến slide trước
+                function prevSlide() {
+                    currentSlideIndex--;
+                    showSlide(currentSlideIndex);
+                }
+                
+                // Thiết lập sự kiện click cho nút prev
+                if (prevBtn) {
+                    prevBtn.addEventListener('click', function() {
+                        prevSlide();
+                    });
+                }
+                
+                // Thiết lập sự kiện click cho nút next
+                if (nextBtn) {
+                    nextBtn.addEventListener('click', function() {
+                        nextSlide();
+                    });
+                }
+                
+                // Thiết lập sự kiện click cho dots
+                dots.forEach((dot, index) => {
+                    dot.addEventListener('click', function() {
+                        currentSlideIndex = index;
+                        showSlide(currentSlideIndex);
+                    });
+                });
+                
+                // Tự động chuyển slide sau 5 giây
+                let slideInterval = setInterval(nextSlide, 5000);
+                
+                // Dừng auto slide khi hover vào slideshow
+                const slideshowContainer = document.querySelector('.slideshow-container');
+                if (slideshowContainer) {
+                    slideshowContainer.addEventListener('mouseenter', function() {
+                        clearInterval(slideInterval);
+                    });
+                    
+                    slideshowContainer.addEventListener('mouseleave', function() {
+                        slideInterval = setInterval(nextSlide, 5000);
+                    });
+                }
+            }
         }, 100); // Trì hoãn 100ms để đảm bảo DOM đã được cập nhật
         
     } catch (error) {
