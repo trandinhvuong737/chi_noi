@@ -1,0 +1,154 @@
+/* Styles pour l'en-tête du site */
+
+/* En-tête principal */
+header {
+    background-color: rgba(255, 255, 255, 0.95);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transition: var(--transition);
+}
+
+header.scrolled {
+    padding: 10px 0;
+    background-color: rgba(255, 255, 255, 0.98);
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+}
+
+/* Logo */
+.logo h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--accent-color);
+}
+
+.logo h1 span {
+    color: var(--primary-color);
+}
+
+/* Navigation */
+nav ul {
+    display: flex;
+}
+
+nav ul li {
+    margin-left: 30px;
+}
+
+nav ul li a {
+    font-weight: 600;
+    transition: var(--transition);
+    position: relative;
+}
+
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background-color: var(--primary-color);
+    bottom: -5px;
+    left: 0;
+    transition: var(--transition);
+}
+
+nav ul li a:hover {
+    color: var(--primary-color);
+}
+
+nav ul li a:hover::after {
+    width: 100%;
+}
+
+/* Menu hamburger pour mobile */
+.hamburger {
+    display: none;
+    cursor: pointer;
+}
+
+.hamburger span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: var(--accent-color);
+    margin: 5px 0;
+    transition: var(--transition);
+}
+
+/* Style de logo amélioré */
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Montserrat:wght@400;700&display=swap');
+
+.logo {
+    position: relative;
+    padding: 5px;
+    overflow: hidden;
+}
+
+.logo h1 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--accent-color);
+    font-family: 'Montserrat', sans-serif;
+    position: relative;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+    letter-spacing: 0.5px;
+    display: inline-block;
+    transition: var(--transition);
+}
+
+.logo h1::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--primary-color), transparent);
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform 0.5s ease;
+}
+
+.logo:hover h1::before {
+    transform: scaleX(1);
+}
+
+.logo h1 span {
+    font-family: 'Dancing Script', cursive;
+    color: var(--primary-color);
+    font-size: 2.4rem;
+    font-weight: 700;
+    position: relative;
+    display: inline-block;
+    text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.2);
+    transition: var(--transition);
+}
+
+.logo h1 span::after {
+    content: '🍲';
+    font-size: 0.8em;
+    position: absolute;
+    top: -15px;
+    right: -15px;
+    opacity: 0;
+    transform: scale(0.5) rotate(15deg);
+    transition: all 0.3s ease;
+}
+
+.logo:hover h1 span {
+    transform: translateY(-2px);
+}
+
+.logo:hover h1 span::after {
+    opacity: 1;
+    transform: scale(1) rotate(0);
+}

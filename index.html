@@ -4,16 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tâm Linh Việt - Mâm Cúng Truyền Thống</title>
+    <!-- Ajout du favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🍲</text></svg>">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <!-- Thêm EmailJS -->
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-    <script type="text/javascript">
-        (function() {
-            // Sẽ được cấu hình trong script.js
-            emailjs.init("YOUR_PUBLIC_KEY");
-        })();
-    </script>
+    <!-- Utiliser le fichier main.js comme point d'entrée principal avec les modules JavaScript -->
+    <script type="module" src="main.js"></script>
 </head>
 <body>
     <header>
@@ -242,7 +240,7 @@
                         </div>
                     </div>
                     <div class="social-media">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.facebook.com/people/Ch%E1%BB%8B-N%E1%BB%93i-D%E1%BB%8Bch-V%E1%BB%A5-M%C3%A2m-C%C3%BAng-Th%C3%B4i-N%C3%B4i-%C4%90%E1%BA%A7y-Th%C3%A1ng-T%E1%BA%A1i-%C4%90%C3%A0-N%E1%BA%B5ng/61556432147583/"><i class="fab fa-facebook-f"></i></a>
                         <a href="#"><i class="fab fa-instagram"></i></a>
                         <a href="#"><i class="fab fa-twitter"></i></a>
                         <a href="#"><i class="fab fa-youtube"></i></a>
@@ -306,7 +304,7 @@
                 </div>
             </div>
             <div class="copyright">
-                <p>&copy; 2025 Tâm Linh Việt. Tất cả các quyền được bảo lưu.</p>
+                <p>&copy; 2025 Chị Nồi. Tất cả các quyền được bảo lưu.</p>
             </div>
         </div>
     </footer>
@@ -314,6 +312,5 @@
     <!-- Modal container cho chi tiết sản phẩm -->
     <div id="modal-container" class="modal-container" style="display: none;"></div>
 
-    <script src="script.js"></script>
 </body>
 </html>

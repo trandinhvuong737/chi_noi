@@ -1,0 +1,281 @@
+/* Styles pour les formulaires */
+
+/* Contact Form */
+.contact-form {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    font-family: inherit;
+    font-size: 1rem;
+    transition: var(--transition);
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(233, 72, 34, 0.1);
+}
+
+/* Modal conteneur */
+.modal-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+    padding: 15px;
+    overflow-y: auto;
+}
+
+/* Form réservation */
+.booking-modal {
+    width: 90%;
+    max-width: 900px;
+    background-color: #fff;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    animation: fadeInDown 0.5s ease;
+    max-height: 90vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.booking-content {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    max-height: 90vh;
+    overflow: hidden;
+}
+
+.booking-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background-color: var(--accent-color);
+    color: var(--light-text);
+    flex-shrink: 0;
+}
+
+.booking-header h2 {
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+.booking-body {
+    padding: 20px;
+    overflow-y: auto;
+    flex: 1;
+    max-height: calc(90vh - 60px);
+}
+
+.booking-product-info {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.booking-product-info img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: var(--border-radius);
+    margin-right: 15px;
+    box-shadow: var(--shadow);
+}
+
+.booking-product-info h3 {
+    margin: 0 0 8px;
+    font-size: 1.1rem;
+    color: var(--accent-color);
+}
+
+.booking-product-info .price {
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--primary-color);
+    margin: 0 0 5px;
+}
+
+.booking-product-info .package-name {
+    font-size: 0.85rem;
+    color: #666;
+    margin: 0;
+    font-style: italic;
+}
+
+#bookingForm {
+    margin-bottom: 0;
+}
+
+#bookingForm label {
+    display: block;
+    margin-bottom: 5px;
+    color: var(--accent-color);
+    font-weight: 500;
+}
+
+#bookingForm .form-group {
+    margin-bottom: 15px;
+}
+
+#bookingForm input,
+#bookingForm select,
+#bookingForm textarea {
+    padding: 12px;
+    font-size: 0.95rem;
+}
+
+#bookingForm button[type="submit"] {
+    margin-top: 10px;
+}
+
+/* Séparateur de formulaire */
+.form-divider {
+    text-align: center;
+    margin: 25px 0;
+    position: relative;
+}
+
+.form-divider::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background-color: #ddd;
+    z-index: 1;
+}
+
+.form-divider span {
+    background-color: white;
+    padding: 0 15px;
+    position: relative;
+    z-index: 2;
+    color: #777;
+    font-size: 0.9rem;
+}
+
+/* Options de contact direct */
+.direct-contact-info {
+    margin-bottom: 25px;
+    background-color: #f9f9f9;
+    border-radius: var(--border-radius);
+    padding: 15px;
+    border-left: 4px solid var(--primary-color);
+}
+
+.direct-contact-info h3 {
+    font-size: 1.1rem;
+    color: var(--accent-color);
+    margin-bottom: 12px;
+    font-weight: 600;
+}
+
+.contact-options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.contact-option {
+    flex: 1;
+    min-width: 160px;
+    display: flex;
+    align-items: center;
+    padding: 10px 15px;
+    border-radius: var(--border-radius);
+    background-color: white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 500;
+}
+
+.contact-option i {
+    margin-right: 10px;
+    font-size: 1.2rem;
+}
+
+.contact-option.phone {
+    border-left: 3px solid #4CAF50;
+}
+
+.contact-option.phone i {
+    color: #4CAF50;
+}
+
+.contact-option.facebook {
+    border-left: 3px solid #3b5998;
+}
+
+.contact-option.facebook i {
+    color: #3b5998;
+}
+
+.contact-option.zalo {
+    border-left: 3px solid #0068ff;
+}
+
+.contact-option.zalo i {
+    color: #0068ff;
+}
+
+.contact-option:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Formulaire de newsletter */
+.footer-newsletter form {
+    display: flex;
+}
+
+.footer-newsletter input {
+    flex: 1;
+    padding: 12px;
+    border: none;
+    border-radius: var(--border-radius) 0 0 var(--border-radius);
+    font-family: inherit;
+}
+
+.footer-newsletter button {
+    background-color: var(--primary-color);
+    color: var(--light-text);
+    border: none;
+    padding: 0 20px;
+    border-radius: 0 var(--border-radius) var(--border-radius) 0;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.footer-newsletter button:hover {
+    background-color: #d13b1a;
+}

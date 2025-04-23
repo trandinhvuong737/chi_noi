@@ -1,3 +1,16 @@
+// Khởi tạo EmailJS
+(function() {
+    emailjs.init("bKA9jCSE_LDL8selt");
+})();
+
+// Danh mục mâm cúng
+const categoryMappings = {
+    'daythangthoinoi': 'MÂM CÚNG ĐẦY THÁNG - THÔI NÔI CHO BÉ',
+    'khaitruongnhaptrach': 'MÂM CÚNG KHAI TRƯƠNG - NHẬP TRẠCH-THẦN TÀI',
+    'tatnien': 'MÂM CÚNG TẤT NIÊN- CÚNG ĐẤT',
+    'vankhan': 'VĂN KHẤN'
+};
+
 // Header scroll effect
 const header = document.querySelector('header');
 window.addEventListener('scroll', () => {
@@ -44,11 +57,6 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 // Form validation
 const contactForm = document.querySelector('#contactForm');
 if (contactForm) {
-    // Khởi tạo EmailJS với Public Key của bạn
-    (function() {
-        emailjs.init("bKA9jCSE_LDL8selt"); // Public key từ tài khoản của bạn
-    })();
-    
     contactForm.addEventListener('submit', (e) => {
         e.preventDefault();
         
@@ -79,7 +87,7 @@ if (contactForm) {
                 to_email: "info@tamlinhviet.com" // Địa chỉ email cố định để nhận thông tin
             };
             
-            // Gửi email qua EmailJS
+            // Gửi email qua EmailJS (sử dụng template_k8rk3k9 cho form liên hệ)
             emailjs.send('service_fznh3hs', 'template_k8rk3k9', templateParams)
                 .then(function(response) {
                     hideLoading();
@@ -163,14 +171,6 @@ productImages.forEach(img => {
         img.style.transform = 'scale(1)';
     });
 });
-
-// Danh mục mâm cúng
-const categoryMappings = {
-    'daythangthoinoi': 'MÂM CÚNG ĐẦY THÁNG - THÔI NÔI CHO BÉ',
-    'khaitruongnhaptrach': 'MÂM CÚNG KHAI TRƯƠNG - NHẬP TRẠCH-THẦN TÀI',
-    'tatniendatdai': 'MÂM CÚNG TẤT NIÊN- CÚNG ĐẤT',
-    'vankhan': 'VĂN KHẤN'
-};
 
 // Fake Data - mâm cúng
 function getFakeProducts() {
@@ -310,7 +310,7 @@ function getFakeProducts() {
             price: '850.000đ',
             category: 'khaitruongnhaptrach',
             categoryName: 'MÂM CÚNG KHAI TRƯƠNG - NHẬP TRẠCH-THẦN TÀI',
-            image: 'images/daythangthoinoi/c14a775ae7fc54a20ded18.jpg',
+            image: 'images/khaitruongnhaptrach/2c409756f2f741a918e624.jpg',
             images: [
                 'images/khaitruongnhaptrach/2c409756f2f741a918e624.jpg',
                 'images/khaitruongnhaptrach/48290f7c68dddb8382cc20.jpg',
@@ -331,9 +331,9 @@ function getFakeProducts() {
             name: 'MÂM CÚNG TẤT NIÊN- CÚNG ĐẤT',
             description: 'Mâm cúng Tất Niên đầy đủ, trang trọng với đồ cúng theo phong tục truyền thống Việt Nam.',
             price: '950.000đ',
-            category: 'tatniendatdai',
+            category: 'tatnien',
             categoryName: 'MÂM CÚNG TẤT NIÊN- CÚNG ĐẤT',
-            image: 'images/khaitruongnhaptrach/2c409756f2f741a918e624.jpg',
+            image: 'images/tatnien/53fdc1c1ac601f3e467130.jpg',
             images: [
                 'images/tatnien/9ed312c77f66cc38957729.jpg',
                 'images/tatnien/53fdc1c1ac601f3e467130.jpg',
@@ -351,9 +351,9 @@ function getFakeProducts() {
             price: '0đ',
             category: 'vankhan',
             categoryName: 'VĂN KHẤN',
-            image: 'images/khaitruongnhaptrach/ca259500f2a141ff18b019.jpg',
+            image: 'images/vancung/8338384257e3e4bdbdf228.jpg',
             images: [
-                'images/daythangthoinoi/0b125d86c9207a7e23316.jpg',
+                'images/vancung/8338384257e3e4bdbdf228.jpg',
             ],
             featured: false,
             badge: null,
@@ -845,9 +845,9 @@ async function showProductDetail(productId) {
 
 // Hiển thị form đặt mâm cúng
 function showBookingForm(product) {
-    // Tạo một ngày mặc định (ngày hiện tại + 3 ngày)
+    // Tạo một ngày mặc định
     const defaultDate = new Date();
-    defaultDate.setDate(defaultDate.getDate() + 3);
+    defaultDate.setDate(defaultDate.getDate());
     const defaultDateStr = defaultDate.toISOString().split('T')[0]; // Format YYYY-MM-DD
     
     // Tạo modal form đặt hàng
@@ -867,31 +867,50 @@ function showBookingForm(product) {
                         <div>
                             <h3>${product.name}</h3>
                             <p class="price">${product.price}</p>
+                            ${product.selectedPackage ? `<p class="package-name">Gói: ${product.selectedPackage.name}</p>` : ''}
                         </div>
                     </div>
-                    <form id="bookingForm">
+                    
+                    <div class="direct-contact-info">
+                        <h3>Liên hệ trực tiếp:</h3>
+                        <div class="contact-options">
+                            <a href="tel:0905368727" class="contact-option phone">
+                                <i class="fas fa-phone-alt"></i>
+                                <span>0905368727</span>
+                            </a>
+                            <a href="https://www.facebook.com/people/Ch%E1%BB%8B-N%E1%BB%93i-D%E1%BB%8Bch-V%E1%BB%A5-M%C3%A2m-C%C3%BAng-Th%C3%B4i-N%C3%B4i-%C4%90%E1%BA%A7y-Th%C3%A1ng-T%E1%BA%A1i-%C4%90%C3%A0-N%E1%BA%B5ng/61556432147583/" target="_blank" class="contact-option facebook">
+                                <i class="fab fa-facebook-f"></i>
+                                <span>Facebook Chị Nồi</span>
+                            </a>
+                            <a href="https://zalo.me/0905368727" target="_blank" class="contact-option zalo">
+                                <i class="fas fa-comment-dots"></i>
+                                <span>Zalo 0905368727</span>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="form-divider">
+                        <span>Hoặc đặt mâm qua form</span>
+                    </div>
+                    
+                    <form id="bookingForm" class="contact-form">
                         <div class="form-group">
-                            <label for="fullName">Họ và tên *</label>
-                            <input type="text" id="fullName" name="fullName" required>
+                            <input type="text" id="fullName" name="fullName" placeholder="Họ và tên" required>
                         </div>
                         <div class="form-group">
-                            <label for="phone">Số điện thoại *</label>
-                            <input type="tel" id="phone" name="phone" required>
+                            <input type="tel" id="phone" name="phone" placeholder="Số điện thoại" required>
                         </div>
                         <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="email" id="email" name="email">
+                            <input type="email" id="email" name="email" placeholder="Email">
                         </div>
                         <div class="form-group">
-                            <label for="address">Địa chỉ *</label>
-                            <input type="text" id="address" name="address" required>
+                            <input type="text" id="address" name="address" placeholder="Địa chỉ" required>
                         </div>
                         <div class="form-group">
-                            <label for="date">Ngày cúng *</label>
+                            <label for="date">Ngày cúng</label>
                             <input type="date" id="date" name="date" min="${defaultDateStr}" value="${defaultDateStr}" required>
                         </div>
                         <div class="form-group">
-                            <label for="time">Giờ cúng *</label>
                             <select id="time" name="time" required>
                                 <option value="" disabled selected>Chọn giờ cúng</option>
                                 <option value="07:00">7:00</option>
@@ -904,10 +923,9 @@ function showBookingForm(product) {
                             </select>
                         </div>
                         <div class="form-group">
-                            <label for="note">Ghi chú</label>
-                            <textarea id="note" name="note" rows="3" placeholder="Yêu cầu đặc biệt hoặc thông tin thêm..."></textarea>
+                            <textarea id="note" name="note" rows="4" placeholder="Yêu cầu đặc biệt hoặc thông tin thêm..."></textarea>
                         </div>
-                        <button type="submit" class="btn-full-width">Xác nhận đặt mâm cúng</button>
+                        <button type="submit" class="btn">Xác nhận đặt mâm cúng</button>
                     </form>
                 </div>
             </div>
@@ -927,53 +945,7 @@ function showBookingForm(product) {
     // Thiết lập sự kiện submit form
     const bookingForm = document.getElementById('bookingForm');
     if (bookingForm) {
-        bookingForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Kiểm tra form
-            let valid = true;
-            const requiredInputs = bookingForm.querySelectorAll('[required]');
-            
-            requiredInputs.forEach(input => {
-                if (!input.value.trim()) {
-                    valid = false;
-                    input.style.borderColor = 'red';
-                } else {
-                    input.style.borderColor = '#ddd';
-                }
-            });
-            
-            if (valid) {
-                // Xử lý đặt hàng
-                const formData = new FormData(bookingForm);
-                const bookingData = {
-                    product: {
-                        id: product.id,
-                        name: product.name,
-                        price: product.price
-                    },
-                    customer: {
-                        name: formData.get('fullName'),
-                        phone: formData.get('phone'),
-                        email: formData.get('email'),
-                        address: formData.get('address')
-                    },
-                    schedule: {
-                        date: formData.get('date'),
-                        time: formData.get('time')
-                    },
-                    note: formData.get('note')
-                };
-                
-                console.log('Dữ liệu đặt mâm cúng:', bookingData);
-                
-                // Hiển thị thông báo thành công
-                document.body.removeChild(modalElement);
-                showNotification('Đặt mâm cúng thành công! Chúng tôi sẽ liên hệ với bạn để xác nhận.', 'success');
-            } else {
-                showNotification('Vui lòng điền đầy đủ thông tin bắt buộc!', 'error');
-            }
-        });
+        setupBookingFormValidation(bookingForm);
     }
     
     // Đóng modal khi click bên ngoài
@@ -984,11 +956,86 @@ function showBookingForm(product) {
     });
 }
 
+// Form validation cho bookingForm
+function setupBookingFormValidation(bookingForm) {
+    bookingForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // Kiểm tra form
+        let valid = true;
+        const requiredInputs = bookingForm.querySelectorAll('[required]');
+        
+        requiredInputs.forEach(input => {
+            if (!input.value.trim()) {
+                valid = false;
+                input.style.borderColor = 'red';
+            } else {
+                input.style.borderColor = '#ddd';
+            }
+        });
+        
+        if (valid) {
+            // Hiển thị loading
+            showLoading();
+            
+            // Lấy giá trị từ form
+            const formData = new FormData(bookingForm);
+            
+            // Chuẩn bị dữ liệu để gửi email
+            const templateParams = {
+                from_name: formData.get('fullName'),
+                from_email: formData.get('email') || 'không cung cấp',
+                phone: formData.get('phone'),
+                address: formData.get('address'),
+                message: formData.get('note') || 'Không có ghi chú',
+                order_date: formData.get('date'),
+                order_time: formData.get('time'),
+                product_info: formData.get('product_info'),
+                product_price: formData.get('product_price'),
+                to_email: "info@tamlinhviet.com"
+            };
+            
+            // Gửi email qua EmailJS với template đặt mâm
+            emailjs.send('service_fznh3hs', 'template_b0holsd', templateParams)
+                .then(function(response) {
+                    hideLoading();
+                    console.log('ĐẶT MÂM CÚNG THÀNH CÔNG!', response.status, response.text);
+                    
+                    // Đóng tất cả các modal trên trang
+                    const allModals = document.querySelectorAll('.modal-container');
+                    allModals.forEach(modal => {
+                        if (document.body.contains(modal)) {
+                            document.body.removeChild(modal);
+                        }
+                    });
+                    
+                    // Hiển thị thông báo thành công
+                    showNotification('Đặt mâm cúng thành công! Chúng tôi sẽ liên hệ với bạn để xác nhận trong thời gian sớm nhất.', 'success');
+                }, function(error) {
+                    hideLoading();
+                    console.log('LỖI KHI ĐẶT MÂM CÚNG', error);
+                    showNotification('Có lỗi xảy ra khi đặt mâm cúng. Vui lòng thử lại sau hoặc liên hệ trực tiếp qua số điện thoại.', 'error');
+                });
+        } else {
+            showNotification('Vui lòng điền đầy đủ thông tin bắt buộc!', 'error');
+        }
+    });
+}
+
 // Hiển thị thông báo
 function showNotification(message, type = 'info') {
     const notification = document.createElement('div');
     notification.classList.add('notification', `notification-${type}`);
-    notification.textContent = message;
+    
+    // Thêm nội dung thông báo và nút đóng
+    notification.innerHTML = `
+        <div class="notification-content">
+            <p>${message}</p>
+            ${type === 'success' && message.includes('thành công') ? 
+              '<p class="notification-note">Nhân viên sẽ liên hệ lại với bạn trong thời gian sớm nhất.</p>' : ''}
+        </div>
+        <button class="notification-close"><i class="fas fa-times"></i></button>
+    `;
     
     document.body.appendChild(notification);
     
@@ -997,13 +1044,33 @@ function showNotification(message, type = 'info') {
         notification.classList.add('show');
     }, 10);
     
-    // Tự động ẩn thông báo sau 3 giây
-    setTimeout(() => {
-        notification.classList.remove('show');
+    // Thêm sự kiện đóng thông báo khi nhấp vào nút đóng
+    const closeBtn = notification.querySelector('.notification-close');
+    if (closeBtn) {
+        closeBtn.addEventListener('click', () => {
+            notification.classList.remove('show');
+            setTimeout(() => {
+                if (notification.parentNode) {
+                    document.body.removeChild(notification);
+                }
+            }, 300);
+        });
+    }
+    
+    // Tự động ẩn thông báo sau 8 giây (thời gian dài hơn để người dùng đọc rõ thông điệp)
+    // Chỉ tự động ẩn với thông báo info, còn success và error thì cần user tắt để tránh miss thông tin
+    if (type === 'info') {
         setTimeout(() => {
-            document.body.removeChild(notification);
-        }, 300);
-    }, 3000);
+            if (notification.parentNode) {
+                notification.classList.remove('show');
+                setTimeout(() => {
+                    if (notification.parentNode) {
+                        document.body.removeChild(notification);
+                    }
+                }, 300);
+            }
+        }, 8000);
+    }
 }
 
 // Hàm khởi tạo bộ lọc sản phẩm
